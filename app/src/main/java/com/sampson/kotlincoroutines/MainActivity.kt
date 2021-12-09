@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -26,15 +27,18 @@ class MainActivity : AppCompatActivity() {
         btnStart.setOnClickListener {
             txtShowResult.text = edtBaseText.text
             runBlocking {
-                launch {
-                    txtShowTimesRepeated.text = doTimesRepeated()
+                repeat(100) {
+                    launch {
+                        txtShowTimesRepeated.text = doTimesRepeated()
+                    }
                 }
             }
+            Toast.makeText(this, "Finish",Toast.LENGTH_SHORT).show()
         }
     }
 
     private suspend fun doTimesRepeated(): String {
-        //delay(2000L)
+        delay(2000L)
         return times++.toString()
     }
 
