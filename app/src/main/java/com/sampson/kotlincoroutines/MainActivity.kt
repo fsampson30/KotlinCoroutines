@@ -6,10 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +29,10 @@ class MainActivity : AppCompatActivity() {
                         txtShowTimesRepeated.text = doTimesRepeated()
                     }
                 }
+                async {
+                    val msg = showMessage()
+                    Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+                }
             }
             Toast.makeText(this, "Finish",Toast.LENGTH_SHORT).show()
         }
@@ -40,6 +41,11 @@ class MainActivity : AppCompatActivity() {
     private suspend fun doTimesRepeated(): String {
         delay(2000L)
         return times++.toString()
+    }
+
+    private suspend fun showMessage(): String {
+        delay(3000)
+        return "Returning"
     }
 
 }
