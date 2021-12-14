@@ -50,4 +50,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtMainActivityShowResult"
         app:layout_constraintTop_toBottomOf="@+id/btnMainActivityStartCoroutine" />
+
+    <TextView
+        android:id="@+id/txtMainActivityNumberRolls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMainActivityShowTimesRepeated" />
+
+    <Button
+        android:id="@+id/btnMainActivityRollDice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Dice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtMainActivityNumberRolls" />
+
+    <ImageView
+        android:id="@+id/imgViewMainActivityDice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMainActivityRollDice"
+        android:src="@drawable/empty_dice" />
 </androidx.constraintlayout.widget.ConstraintLayout>
