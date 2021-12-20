@@ -61,4 +61,12 @@ class ValidatorTest {
         val result = Validator.divideDouble(value1,value2)
         assertThat(result).isPositiveInfinity()
     }
+
+    @Test
+    fun whenMultipliplyIsValid(){
+        val value1 = 2
+        val value2 = 4
+        val result = Validator.multiplyInt(value1,value2)
+        assertThat(result).isGreaterThan(0)
+    }
 }
