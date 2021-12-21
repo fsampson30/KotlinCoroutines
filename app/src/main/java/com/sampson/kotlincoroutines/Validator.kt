@@ -2,7 +2,7 @@ package com.sampson.kotlincoroutines
 
 object Validator {
 
-    fun validadeInput(value: String): Boolean {
+    fun validateInput(value: String): Boolean {
         return !((value == null) || (value.isEmpty()))
     }
 
@@ -19,6 +19,10 @@ object Validator {
     }
 
     fun multiplyInt(value1: Int, value2: Int) : Int {
+        return value1 * value2
+    }
+
+    suspend fun multiplyDouble(value1: Double, value2: Double) : Double {
         return value1 * value2
     }
 }

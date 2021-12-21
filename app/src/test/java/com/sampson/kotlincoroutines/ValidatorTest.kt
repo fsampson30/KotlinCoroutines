@@ -1,6 +1,7 @@
 package com.sampson.kotlincoroutines
 
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.runBlocking
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
@@ -11,14 +12,14 @@ class ValidatorTest {
     @Test
     fun validateInput() {
         val input = "100"
-        val result = Validator.validadeInput(input)
+        val result = Validator.validateInput(input)
         assertThat(result).isTrue()
     }
 
     @Test
     fun invalidInput() {
         val input = ""
-        val result = Validator.validadeInput(input)
+        val result = Validator.validateInput(input)
         assertThat(result).isFalse()
     }
 
@@ -55,7 +56,7 @@ class ValidatorTest {
     }
 
     @Test
-    fun whenDivideDoubleisInvalid(){
+    fun whenDivideDoubleIsInvalid(){
         val value1 = 10.0
         val value2 = 0.0
         val result = Validator.divideDouble(value1,value2)
@@ -63,10 +64,18 @@ class ValidatorTest {
     }
 
     @Test
-    fun whenMultipliplyIsValid(){
+    fun whenMultiplyIntIsValid(){
         val value1 = 2
         val value2 = 4
         val result = Validator.multiplyInt(value1,value2)
         assertThat(result).isGreaterThan(0)
+    }
+
+    @Test
+    fun whenMultiplyDoubleIsValid() = runBlocking{
+        val value1 = 15.6
+        val value2 = 17.8
+        val result = Validator.multiplyDouble(value1,value2)
+        assertThat(result).isNonZero()
     }
 }
