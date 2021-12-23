@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         val txtShowResult = findViewById<TextView>(R.id.txtMainActivityShowResult)
         val txtShowTimesRepeated = findViewById<TextView>(R.id.txtMainActivityShowTimesRepeated)
         val btnRollDice = findViewById<Button>(R.id.btnMainActivityRollDice)
-        val txtNumerRolls = findViewById<TextView>(R.id.txtMainActivityNumberRolls)
+        val txtNumberRolls = findViewById<TextView>(R.id.txtMainActivityNumberRolls)
         val imgView = findViewById<ImageView>(R.id.imgViewMainActivityDice)
 
         btnStart.setOnClickListener {
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         btnRollDice.setOnClickListener {
             rollDice()
             val number = randomDiceNumber()
-            txtNumerRolls.text = number
+            txtNumberRolls.text = number
             imgView.setImageResource(drawableResourse(number.toInt()))
         }
     }

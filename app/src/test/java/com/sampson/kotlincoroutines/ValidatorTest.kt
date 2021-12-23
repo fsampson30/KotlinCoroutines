@@ -78,4 +78,13 @@ class ValidatorTest {
         val result = Validator.multiplyDouble(value1,value2)
         assertThat(result).isNonZero()
     }
+
+    @Test
+    fun whenSubtractIsValid(){
+        val value1 = 10
+        val value2 = 7
+        val result = Validator.subtract(value1, value2)
+        assertThat(result).isNotNull()
+
+    }
 }
