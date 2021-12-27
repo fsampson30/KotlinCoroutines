@@ -87,4 +87,13 @@ class ValidatorTest {
         assertThat(result).isNotNull()
 
     }
+
+    @Test
+    fun whenSubtractIsInvalid(){
+        val value1 = -10
+        val value2 = 7
+        val result = Validator.subtract(value1, value2)
+        assertThat(result).isLessThan(0)
+
+    }
 }
