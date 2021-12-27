@@ -4,8 +4,8 @@ class FactorialNumber {
     fun factorial(n: Int): Int {
         return IntArray(n) {
             it + 1
-        }.reduce { acc, i ->
+        }.fold( 1, { acc, i ->
             acc * i
-        }
+        } )
     }
 }
