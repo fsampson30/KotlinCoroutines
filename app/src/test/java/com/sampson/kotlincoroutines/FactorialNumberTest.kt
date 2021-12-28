@@ -2,6 +2,9 @@ package com.sampson.kotlincoroutines
 
 import org.junit.Test
 import com.google.common.truth.Truth.assertThat
+import org.junit.After
+import org.junit.Before
+import org.junit.Rule
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigInteger
@@ -26,6 +29,10 @@ class FactorialNumberTest(
             arrayOf(25, BigInteger("15511210043330985984000000"))
         )
     }
+
+    @JvmField
+    @Rule
+    val resultRule = ResultRule()
 
     private val factorial = FactorialNumber()
 

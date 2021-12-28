@@ -4,6 +4,11 @@ import java.math.BigInteger
 import kotlin.jvm.Throws
 
 class FactorialNumber {
+
+    companion object {
+        var result: BigInteger = BigInteger.ONE
+    }
+
     @Throws(FactorialNotFoundException::class)
     fun factorial(n: Int): BigInteger {
         if (n < 0) {
@@ -15,7 +20,6 @@ class FactorialNumber {
         }.fold( BigInteger.ONE, { acc, i ->
             acc * i.toBigInteger()
         } )*/
-        var result = BigInteger.ONE
         for (i in 1..n){
             result = result.times(i.toBigInteger())
         }
