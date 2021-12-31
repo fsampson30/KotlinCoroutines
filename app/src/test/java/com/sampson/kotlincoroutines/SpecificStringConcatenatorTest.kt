@@ -15,4 +15,13 @@ class SpecificStringConcatenatorTest {
         val result = specificStringConcatenator.concatenateSpecificStrings()
         Truth.assertThat(result).isEqualTo(expected)
     }
+
+    @Test
+    fun concatenateWithCallBack() {
+        val expected =  "expected"
+        Mockito.`when`(stringConcatenator.concatenate(R.string.string_1, R.string.string_2)).thenReturn(expected)
+        val callback = Mockito.mock(SpecificStringConcatenator.Callback::class.java)
+        specificStringConcatenator.concatenateWithCallBack(callback)
+        Mockito.verify(callback).onStringReady(expected)
+    }
 }
