@@ -1,6 +1,8 @@
 package com.sampson.kotlincoroutines
 
 import com.google.common.truth.Truth
+import com.nhaarman.mockitokotlin2.verify
+import com.nhaarman.mockitokotlin2.whenever
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.InjectMocks
@@ -18,7 +20,7 @@ class SpecificStringConcatenatorTest {
     @Test
     fun concatenateSpecificStrings(){
         val expected = "expected"
-        Mockito.`when`(stringConcatenator.concatenate(R.string.string_1, R.string.string_2)).thenReturn(expected)
+        whenever(stringConcatenator.concatenate(R.string.string_1, R.string.string_2)).thenReturn(expected)
         val result = specificStringConcatenator.concatenateSpecificStrings()
         Truth.assertThat(result).isEqualTo(expected)
     }
@@ -27,9 +29,9 @@ class SpecificStringConcatenatorTest {
     fun concatenateWithCallBack() {
         val expected =  "expected"
         val spy = Mockito.spy(specificStringConcatenator)
-        Mockito.`when`(spy.concatenateSpecificStrings()).thenReturn(expected)
+        whenever(spy.concatenateSpecificStrings()).thenReturn(expected)
         val callback = Mockito.mock(SpecificStringConcatenator.Callback::class.java)
         specificStringConcatenator.concatenateWithCallBack(callback)
-        Mockito.verify(callback).onStringReady(expected)
+        verify(callback).onStringReady(expected)
     }
 }
