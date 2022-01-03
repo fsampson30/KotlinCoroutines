@@ -2,12 +2,18 @@ package com.sampson.kotlincoroutines
 
 import com.google.common.truth.Truth
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.InjectMocks
+import org.mockito.Mock
 import org.mockito.Mockito
+import org.mockito.junit.MockitoJUnitRunner
 
-
+@RunWith(MockitoJUnitRunner::class)
 class SpecificStringConcatenatorTest {
-    private val stringConcatenator = Mockito.mock(StringConcatenator::class.java)
-    private val specificStringConcatenator = SpecificStringConcatenator(stringConcatenator)
+    @Mock
+    lateinit var stringConcatenator: StringConcatenator
+    @InjectMocks
+    lateinit var specificStringConcatenator: SpecificStringConcatenator
 
     @Test
     fun concatenateSpecificStrings(){
