@@ -4,6 +4,7 @@ import com.google.common.truth.Truth
 import org.junit.Test
 import org.mockito.Mockito
 
+
 class SpecificStringConcatenatorTest {
     private val stringConcatenator = Mockito.mock(StringConcatenator::class.java)
     private val specificStringConcatenator = SpecificStringConcatenator(stringConcatenator)
@@ -19,7 +20,8 @@ class SpecificStringConcatenatorTest {
     @Test
     fun concatenateWithCallBack() {
         val expected =  "expected"
-        Mockito.`when`(stringConcatenator.concatenate(R.string.string_1, R.string.string_2)).thenReturn(expected)
+        val spy = Mockito.spy(specificStringConcatenator)
+        Mockito.`when`(spy.concatenateSpecificStrings()).thenReturn(expected)
         val callback = Mockito.mock(SpecificStringConcatenator.Callback::class.java)
         specificStringConcatenator.concatenateWithCallBack(callback)
         Mockito.verify(callback).onStringReady(expected)
