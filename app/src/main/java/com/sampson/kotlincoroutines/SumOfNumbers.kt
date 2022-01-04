@@ -10,10 +10,7 @@ class SumOfNumbers {
             throw InvalidNumberException
         }
         var result = BigInteger.ZERO
-        for (i in 1..n) {
-            result = result.plus(i.toBigInteger())
-        }
-        callback(result)
+        callback(n.toBigInteger().times(n.toBigInteger() + 1.toBigInteger()).divide(2.toBigInteger()))
     }
     object InvalidNumberException : Throwable()
 }
